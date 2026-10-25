@@ -1,4 +1,3 @@
-import 'package:aut_cse464_class_project/screens/counter_page.dart';
 import 'package:aut_cse464_class_project/screens/main_app_home.dart';
 import 'package:flutter/material.dart';
 
