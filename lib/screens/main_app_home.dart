@@ -1,5 +1,7 @@
 import 'dart:ffi';
 
+import 'package:aut_cse464_class_project/provider/student_management_provider.dart';
+import 'package:aut_cse464_class_project/screens/add_students_page.dart';
 import 'package:aut_cse464_class_project/screens/counter_page.dart';
 import 'package:aut_cse464_class_project/screens/student_list_page.dart';
 import 'package:aut_cse464_class_project/utils/constant.dart';
@@ -15,6 +17,9 @@ class MainAppHome extends StatefulWidget {
 }
 
 class _MainAppHomeState extends State<MainAppHome> {
+  
+  final StudentManagementProvider studentManagementProvider = StudentManagementProvider();
+  
   void goToCounterPage() {
     Navigator.of(context).push(
       // -> Getting my navigation. stack
@@ -27,7 +32,13 @@ class _MainAppHomeState extends State<MainAppHome> {
   void goToStudentListPage() {
     Navigator.of(
       context,
-    ).push(MaterialPageRoute(builder: (context) => StudentListPage()));
+    ).push(MaterialPageRoute(builder: (context) => StudentListPage(studentManagementProvider: studentManagementProvider,)));
+  }
+
+  void goToStudentAddPage() {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (context) => AddStudentsPage(studentManagementProvider: studentManagementProvider,)));
   }
 
   @override
@@ -137,7 +148,9 @@ class _MainAppHomeState extends State<MainAppHome> {
               ),
 
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  goToStudentAddPage();
+                },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: Colors.black,

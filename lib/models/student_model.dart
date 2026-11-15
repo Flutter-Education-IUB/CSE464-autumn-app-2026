@@ -12,4 +12,8 @@ class StudentModel {
     required this.cgpa,
   });
 
+  @override
+  String toString() {
+    return "ID: $id , name: $name, dis: $department , CGPA: $cgpa ";
+  }
 }
